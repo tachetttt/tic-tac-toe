@@ -1,0 +1,184 @@
+body {
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.game {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  background: white;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+
+.game-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+.board-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.square {
+  background: #f9f9f9;
+  border: 2px solid #888;
+  float: left;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 90px;
+  height: 90px;
+  width: 90px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 10px;
+}
+
+.square:hover {
+  background: #dfe8ff;
+  transform: scale(1.05);
+}
+
+.game-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.game-info ol {
+  list-style: decimal;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+
+.game-info button {
+  background: #66a6ff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.game-info button:hover {
+  background: #4b8df7;
+  transform: translateY(-2px);
+}
+
+.game-info button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.symbol {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+
+.undo-btn {
+  background: #888;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.undo-btn:hover {
+  background: #555;
+  transform: translateY(-2px);
+}
+
+.undo-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+
+.winner-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.4s ease forwards;
+  z-index: 9999; 
+}
+
+.winner-text {
+  font-size: 52px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 2px;
+  text-align: center;
+  animation: popIn 1s ease forwards, fadeOut 1s ease 3.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
